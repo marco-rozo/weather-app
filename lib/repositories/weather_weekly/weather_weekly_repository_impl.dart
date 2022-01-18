@@ -11,7 +11,8 @@ class WeatherWeeklyRepositoryImpl implements WeatherWeeklyRepository {
   }) : _restClient = restClient;
 
   @override
-  Future<List<WeatherWeeklyModel?>> getWeatherWeekly(String lat, String long) async {
+  Future<List<WeatherWeeklyModel?>> getWeatherWeekly(
+      String lat, String long) async {
     final result = await _restClient.get<List<WeatherWeeklyModel>>(
       '/onecall?',
       query: {
@@ -19,8 +20,8 @@ class WeatherWeeklyRepositoryImpl implements WeatherWeeklyRepository {
         'lang': 'pt_br',
         'units': 'metric',
         'exclude': 'hourly,minutely',
-        'lat': '-26.4783392',
-        'lon': '-53.6857977',
+        'lat': lat,
+        'lon': long,
       },
       decoder: (data) {
         //pega os dados do array "genres"
@@ -42,7 +43,7 @@ class WeatherWeeklyRepositoryImpl implements WeatherWeeklyRepository {
     );
 
     //apos executar o acesso verifica se possui algumm erro
-    if(result.hasError){
+    if (result.hasError) {
       print('Erro getWeatherWeekly [${result.statusText}]');
       throw Exception('Erro getWeatherWeekly');
     }

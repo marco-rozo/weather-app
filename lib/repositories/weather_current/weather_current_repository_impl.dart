@@ -16,8 +16,8 @@ class WeatherCurrentRepositoryImpl implements WeatherCurrentRepository {
       'appid': RemoteConfig.instance.getString('api_key_openweathermap'),
       'lang': 'pt_br',
       'units': 'metric',
-      'lat': '-26.4783392',
-      'lon': '-53.6857977',
+      'lat': lat,
+      'lon': long,
     }, decoder: (data) {
       print('decoder: (data)');
       print(data);
