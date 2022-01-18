@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "376572229218",
+    "project_id": "app-weather-marco",
+    "storage_bucket": "app-weather-marco.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:376572229218:android:946da8216ef5397e97033b",
+        "android_client_info": {
+          "package_name": "br.com.marcorozodev.weather_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "376572229218-m5hh0fhn2bvoj80gib4qdvsgtr4vrvcr.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "br.com.marcorozodev.weather_app",
+            "certificate_hash": "7a8fa43e9ab494a54765c14803c781ebdef3db9b"
+          }
+        },
+        {
+          "client_id": "376572229218-frdvln5v8fm9h16i7luk1nq7s037gn6e.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCr7VjD0vs54qtvFi5qkrKbYvBeF7E1TtM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "376572229218-frdvln5v8fm9h16i7luk1nq7s037gn6e.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
