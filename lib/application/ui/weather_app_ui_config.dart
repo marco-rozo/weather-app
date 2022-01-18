@@ -9,10 +9,12 @@ class WeatherAppUIConfig {
 
   static ThemeData get theme => ThemeData(
         fontFamily: 'Poppins',
-        scaffoldBackgroundColor: Color(0xff8575D8),
+        scaffoldBackgroundColor: Color(0xff6370BC),
+        // scaffoldBackgroundColor: Color(0xff6C7FCC),
+        // scaffoldBackgroundColor: Color(0xff827FDC),
         appBarTheme: AppBarTheme(
           centerTitle: true,
-          backgroundColor: Color(0xff8575D8),
+          backgroundColor: Color(0xff6370BC),
           backwardsCompatibility: false,
           iconTheme: IconThemeData(color: Colors.white),
           titleTextStyle: TextStyle(
