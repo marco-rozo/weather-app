@@ -11,7 +11,7 @@ class BottomModal extends StatelessWidget {
       width: MediaQuery.of(context).size.width,
       height: MediaQuery.of(context).size.height * .88,
       decoration: BoxDecoration(
-        color: Color(0xff8F8CDD),
+        color: Color(0xff6B83CD),
         borderRadius: BorderRadius.only(
           topLeft: Radius.circular(20),
           topRight: Radius.circular(20),
@@ -44,7 +44,7 @@ class BottomModal extends StatelessWidget {
             //width: MediaQuery.of(context).size.width * .9,
             padding: EdgeInsets.only(bottom: 20),
             child: TextField(
-                controller: _cityController,
+              controller: _cityController,
 
               //resgata o valor escrito e passa para a função de filtro da controller
               //onChanged: (value) => print(value),
