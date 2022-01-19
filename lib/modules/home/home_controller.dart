@@ -60,14 +60,6 @@ class HomeController extends GetxController with LoaderMixin {
       weatherWeeklyData.removeAt(0);
       weatherWeekly.assignAll(weatherWeeklyData);
 
-      print('box.read(latitude)');
-      print(latitude);
-      print('box.read(longitude)');
-      print(longitude);
-      print(weatherCurrentData?.temp);
-      print('weatherWeekly Controller');
-      print(weatherWeekly);
-
       loading(false);
     } on Exception catch (e, s) {
       print(e);

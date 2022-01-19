@@ -24,14 +24,11 @@ class WeatherWeeklyRepositoryImpl implements WeatherWeeklyRepository {
         'lon': long,
       },
       decoder: (data) {
-        //pega os dados do array "genres"
+        //pega os dados do array "daily"
         final result = data['daily'];
-        print('result = data[daily];');
-        print(result);
-        print('result = data[daily];');
         //verifica se tem dados
         if (result != null) {
-          //transforma a lista de CHAVExVALOR (JSON) no model GenreModel
+          //transforma a lista de CHAVExVALOR (JSON) no model WeatherWeeklyModel
           return result
               .map<WeatherWeeklyModel>((w) => WeatherWeeklyModel.fromMap(w))
               .toList();

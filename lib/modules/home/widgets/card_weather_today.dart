@@ -12,9 +12,6 @@ class CardWeathertToday extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    print('weatherCurrentCardWeathertToday');
-    print(weatherCurrent?.sunrise.toString());
-    print(weatherCurrent?.sunset.toString());
     NumberFormat formatter = NumberFormat("00.0");
     String tempFormatter = formatter.format(weatherCurrent?.temp);
 

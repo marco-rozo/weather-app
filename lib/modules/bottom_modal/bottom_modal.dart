@@ -46,7 +46,7 @@ class BottomModal extends StatelessWidget {
             child: TextField(
               controller: _cityController,
 
-              //resgata o valor escrito e passa para a função de filtro da controller
+              //resgata o valor escrito
               //onChanged: (value) => print(value),
               onSubmitted: (value) => print(value),
               cursorColor: Colors.grey,

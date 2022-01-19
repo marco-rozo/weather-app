@@ -19,8 +19,6 @@ class WeatherCurrentRepositoryImpl implements WeatherCurrentRepository {
       'lat': lat,
       'lon': long,
     }, decoder: (data) {
-      print('decoder: (data)');
-      print(data);
       return WeatherCurrentModel.fromMap(data);
     });
 
