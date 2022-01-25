@@ -7,8 +7,13 @@ mixin LoaderMixin on GetxController {
     ever<bool>(loaderRX, (loading) async {
       if (loading) {
         await Get.dialog(
-          const Center(
-            child: SpinKitThreeBounce(color: Colors.white),
+          Container(
+            height: Get.height,
+            width: Get.width,
+            color: Colors.black.withOpacity(0.8),
+            child: const Center(
+              child: SpinKitThreeBounce(color: Colors.white),
+            ),
           ),
           barrierDismissible: false,
         );
