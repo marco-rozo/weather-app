@@ -1,10 +1,9 @@
 import 'package:get/get.dart';
 
-class RestClient extends GetConnect{
+class RestClientWeather extends GetConnect{
 
-  RestClient(){
+  RestClientWeather(){
     httpClient.baseUrl = 'https://api.openweathermap.org/data/2.5/';
   }
-
   
 }
