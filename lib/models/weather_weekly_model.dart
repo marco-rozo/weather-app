@@ -5,6 +5,7 @@ import 'package:intl/intl.dart';
 
 class WeatherWeeklyModel {
   final String day_of_the_week;
+  final String date_format;
   final String sunrise;
   final String sunset;
   final double temp_day;
@@ -18,9 +19,12 @@ class WeatherWeeklyModel {
   final String description;
   final String icon;
   final double wind_speed;
+  final int clouds;
+  final int pressure;
 
   WeatherWeeklyModel({
     required this.day_of_the_week,
+    required this.date_format,
     required this.sunrise,
     required this.sunset,
     required this.temp_day,
@@ -34,11 +38,14 @@ class WeatherWeeklyModel {
     required this.description,
     required this.icon,
     required this.wind_speed,
+    required this.clouds,
+    required this.pressure,
   });
 
   Map<String, dynamic> toMap() {
     return {
       'day_of_the_week': day_of_the_week,
+      'date_format': date_format,
       'sunrise': sunrise,
       'sunset': sunset,
       'temp_day': temp_day,
@@ -52,6 +59,8 @@ class WeatherWeeklyModel {
       'description': description,
       'icon': icon,
       'wind_speed': wind_speed,
+      'clouds': clouds,
+      'pressure': pressure,
     };
   }
 
@@ -64,8 +73,14 @@ class WeatherWeeklyModel {
     String formatHour(int unixDate) {
       String hour = DateFormat(DateFormat.HOUR24_MINUTE, 'pt_BR')
           .format(DateTime.fromMillisecondsSinceEpoch(unixDate * 1000));
-
       return hour;
+    }
+
+    String formatDate(int unixDate) {
+      String date = DateFormat(DateFormat.MONTH_DAY, 'pt_BR')
+          .format(DateTime.fromMillisecondsSinceEpoch(unixDate * 1000));
+      date = toBeginningOfSentenceCase(date).toString();
+      return date;
     }
 
     return WeatherWeeklyModel(
@@ -80,9 +95,12 @@ class WeatherWeeklyModel {
       feels_like_night: map['feels_like']['night']?.toDouble() ?? 0.0,
       humidity: map['humidity']?.toDouble() ?? 0.0,
       title: map['weather'][0]['main'] ?? '',
-      description: map['weather'][0]['description'] ?? '',
+      description: toBeginningOfSentenceCase(map['weather'][0]['description']) ?? '',
       icon: map['weather'][0]['icon'] ?? '',
       wind_speed: map['wind_speed']?.toDouble() ?? 0.0,
+      date_format: formatDate(map['dt']),
+      clouds: map['clouds'],
+      pressure: map['pressure'],
     );
   }
 

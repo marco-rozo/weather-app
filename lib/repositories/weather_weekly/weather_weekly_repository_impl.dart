@@ -1,13 +1,13 @@
 import 'package:firebase_remote_config/firebase_remote_config.dart';
-import 'package:weather_app/application/rest_client/rest_client.dart';
+import 'package:weather_app/application/rest_client/rest_client_weather.dart';
 import 'package:weather_app/models/weather_weekly_model.dart';
 import 'package:weather_app/repositories/weather_weekly/weather_weekly_repository.dart';
 
 class WeatherWeeklyRepositoryImpl implements WeatherWeeklyRepository {
-  final RestClient _restClient;
+  final RestClientWeather _restClient;
 
   WeatherWeeklyRepositoryImpl({
-    required RestClient restClient,
+    required RestClientWeather restClient,
   }) : _restClient = restClient;
 
   @override

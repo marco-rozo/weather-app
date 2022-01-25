@@ -14,7 +14,10 @@ class WeatherCurrentModel {
   final String sunset;
   final double wind_speed;
   final DateTime date;
+  final String date_format;
   final String day_of_the_week;
+  final int clouds;
+  final int pressure;
 
   WeatherCurrentModel({
     required this.title,
@@ -28,7 +31,10 @@ class WeatherCurrentModel {
     required this.sunset,
     required this.wind_speed,
     required this.date,
+    required this.date_format,
     required this.day_of_the_week,
+    required this.clouds,
+    required this.pressure,
   });
 
   Map<String, dynamic> toMap() {
@@ -39,18 +45,21 @@ class WeatherCurrentModel {
       'temp': temp,
       'feels_like': feels_like,
       'humidity': humidity,
-      'cityName': city_name,
+      'city_name': city_name,
       'sunrise': sunrise,
       'sunset': sunset,
-      'windSpeed': wind_speed,
+      'wind_speed': wind_speed,
       'date': date,
-      'dayOfTheWeek': day_of_the_week,
+      'date_format': date_format,
+      'day_of_the_week': day_of_the_week,
+      'clouds': clouds,
+      'pressure': pressure,
     };
   }
 
   factory WeatherCurrentModel.fromMap(Map<String, dynamic> map) {
     initializeDateFormatting('pt_BR', null);
-    
+
     String week_day = DateFormat(DateFormat.WEEKDAY, 'pt_BR')
         .format(DateTime.fromMillisecondsSinceEpoch(map['dt'] * 1000));
 
@@ -59,6 +68,15 @@ class WeatherCurrentModel {
           .format(DateTime.fromMillisecondsSinceEpoch(unixDate * 1000));
 
       return hour;
+    }
+
+    String formatDate(int unixDate) {
+      String date = DateFormat(DateFormat.YEAR_MONTH_DAY, 'pt_BR')
+          .format(DateTime.fromMillisecondsSinceEpoch(unixDate * 1000));
+      
+      date = toBeginningOfSentenceCase(date).toString();
+      
+      return date;
     }
 
     return WeatherCurrentModel(
@@ -75,7 +93,10 @@ class WeatherCurrentModel {
       sunset: formatHour(map['sys']['sunset']),
       wind_speed: map['wind']['windSpeed']?.toDouble() ?? 0.0,
       date: DateTime.fromMillisecondsSinceEpoch(map['dt'] * 1000),
+      date_format: formatDate(map['dt']),
       day_of_the_week: toBeginningOfSentenceCase(week_day).toString(),
+      clouds: map['clouds']['all'],
+      pressure: map['main']['pressure'],
     );
   }
 

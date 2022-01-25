@@ -36,22 +36,22 @@ class HomeController extends GetxController with LoaderMixin {
     super.onReady();
     try {
       loading(true);
-      final box = GetStorage();
+      // final box = GetStorage();
 
-      var latitude;
-      var longitude;
+      // var latitude;
+      // var longitude;
 
-      if (box.read('latitude') == null && box.read('latitude') == null) {
+      // if (box.read('latitude') == null && box.read('latitude') == null) {
         Position resultPosition = await _getGeoLocationPosition();
-        latitude = resultPosition.latitude.toString();
-        longitude = resultPosition.longitude.toString();
+        var latitude = resultPosition.latitude.toString();
+        var longitude = resultPosition.longitude.toString();
 
-        box.write('latitude', resultPosition.latitude.toString());
-        box.write('longitude', resultPosition.longitude.toString());
-      }
+      //   box.write('latitude', resultPosition.latitude.toString());
+      //   box.write('longitude', resultPosition.longitude.toString());
+      // }
 
-      latitude = box.read('latitude');
-      longitude = box.read('longitude');
+      // latitude = box.read('latitude');
+      // longitude = box.read('longitude');
 
       final weatherCurrentData = await _weatherCurrentService.getWeatherCurrent(latitude, longitude);
       final weatherWeeklyData = await _weatherWeeklyService.getWeatherWeekly(latitude, longitude);
