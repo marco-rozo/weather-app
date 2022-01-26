@@ -29,10 +29,9 @@ class SearchCitiesController extends GetxController with LoaderMixin {
   Future<void> onReady() async {
     super.onReady();
     loading(true);
-    restoreListCountries();
 
     try {
-      if (countriesName.length < 0) {
+      if (countriesName.length <= 0) {
         //pega os dados da api
         final allCountriesData = await _searchCitiesService.getAllCountries();
         //passa os dados pra lista
@@ -62,17 +61,20 @@ class SearchCitiesController extends GetxController with LoaderMixin {
   }
 
   void restoreListCountries() {
-    List<dynamic> storageList = box.read('storageListCountries');
+    if (box.read('storageListCountries') != '') {
+      List<dynamic> storageList = box.read('storageListCountries');
 
-    if (storageList.length > 0) {
-      List<String> listCopy = [];
+      if (storageList.length > 0) {
+        List<String> listCopy = [];
 
-      storageList.forEach((item) {
-        //percore a lista e adiciona na nova lista apenas os nomes
-        listCopy.add(item.toString());
-      });
+        storageList.forEach((item) {
+          //percore a lista e adiciona na nova lista apenas os nomes
+          listCopy.add(item.toString());
+        });
 
-      countriesName.assignAll(listCopy);
+        countriesName.assignAll(listCopy);
+        setSelected(countriesName.first);
+      }
     }
   }
 }

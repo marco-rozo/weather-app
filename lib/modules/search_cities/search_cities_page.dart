@@ -1,3 +1,4 @@
+import 'package:dropdown_search2/dropdown_search2.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
@@ -27,41 +28,42 @@ class SearchCitiesPage extends GetView<SearchCitiesController> {
         ),
         child: Column(
           children: [
-            //dropdown button in Ui
             Obx(() {
               return controller.allCountries.length > 0 ||
                       controller.countriesName.length > 0
                   ? Container(
                       padding:
-                          EdgeInsets.symmetric(horizontal: 12, vertical: 5),
+                          EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+                      margin:
+                          EdgeInsets.symmetric(horizontal: 16, vertical: 10),
                       decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(20.0),
-                        color: Colors.grey.shade300.withOpacity(0.4),
+                        borderRadius: BorderRadius.circular(10.0),
+                        color: Colors.grey.shade300.withOpacity(0.5),
                       ),
-                      child: DropdownButton<String>(
-                        style: TextStyle(
-                          fontSize: 18,
-                          color: Colors.white,
-                          fontFamily: 'Poppins',
-                        ),
-                        dropdownColor: Colors.grey.shade300.withOpacity(0.9),
-                        value: controller.valueSelectedCountrie.value,
-                        items: controller.countriesName.map((String value) {
-                          return DropdownMenuItem<String>(
-                            value: value,
-                            child: Text(
-                              value,
-                              style: TextStyle(
-                                color: Colors.white,
-                                fontFamily: 'Poppins',
-                                decoration: TextDecoration.none,
-                              ),
-                            ),
-                          );
-                        }).toList(),
+                      child: DropdownSearch<String>(
+                        mode: Mode.BOTTOM_SHEET,
+                        showSelectedItems: true,
+                        items: controller.countriesName,
+                        label: "Paises",
+                        hint: "Selecione o pais",
                         onChanged: (newValue) {
                           controller.setSelected(newValue.toString());
                         },
+                        // selectedItem: controller.valueSelectedCountrie.value,
+                        showSearchBox: true,
+                        showClearButton: true,
+                        dropdownSearchDecoration: InputDecoration(
+                            fillColor: Colors.transparent,
+                            filled: true,
+                            contentPadding: EdgeInsets.only(
+                                bottom: 10.0, left: 10.0, right: 10.0),
+                            labelText: "Paises",
+                            labelStyle: TextStyle(color: Colors.black),
+                            border: OutlineInputBorder(),
+                            focusedBorder: OutlineInputBorder(
+                              borderSide: const BorderSide(width: 0.5),
+                            ),
+                            hoverColor: Colors.white),
                       ),
                     )
                   : Container();
