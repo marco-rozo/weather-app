@@ -1,16 +1,15 @@
-# weatherapp
+# App Weather
+Aplicativo de consultas meteorológicas desenvolvido como forma de estudos consumindo a API Free do [OpenWeather](https://openweathermap.org/api) e [GetX](https://pub.dev/documentation/get/latest/) para gerenciamento de estado.
 
-A new Flutter project.
 
-## Getting Started
+### em desenvolvimento...
 
-This project is a starting point for a Flutter application.
+*Pontos  (objetivos) de estudo a serem englobados:*
 
-A few resources to get you started if this is your first Flutter project:
+ - Componentização
+ - Design de interface
+ - Configuração de tema
+ - Consumo de API
+ - Gerenciamento de estado
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
-
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+  
