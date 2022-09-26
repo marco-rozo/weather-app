@@ -11,5 +11,5 @@ Aplicativo de consultas meteorológicas desenvolvido como forma de estudos consu
  - Configuração de tema
  - Consumo de API
  - Gerenciamento de estado
-
+ - Geolocalização
   
